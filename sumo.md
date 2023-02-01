@@ -223,22 +223,7 @@ The difference can be expressed in even simpler terms: WordNet contains words, b
 
 ## Type system
 
-Or rather lack of one. It seemed to cause some problems when translating SUMO to GF.
-
-Quotes from Enache (2010) [Reasoning and Language Generation in the SUMO Ontology](http://publications.lib.chalmers.se/records/fulltext/116606.pdf)
-
-> Another difficulty is the fact that the SUO-KIF framework where everything is expressed as a predicate, and the task of checking the consistency is passed to the automated prover. As seen from the definition of first-order terms and formulas, the only type checking that can be done is that functions and predicates are applied to the right number of arguments. Also, the representation of all concepts in one hierarchy gives rise to constructions that belong ultimately to higher-order logic, and cannot be translated and checked by a first-order automated prover.
-
-> (page 18) … in SUMO, functions and predicates do not only take instances as arguments, but also subclasses of a certain class,
-
-Given the untyped nature of SUMO, it's easy to get confused about types, instances, classes, predicates, functions and all that stuff.
-
-> (page 20) Regarding difficulties of the translation of SUMO definitions to GF, we name the presence of concepts that appear both as subclass and instance, in the same file or in different files. For example, in Mid-level-ontology-
->
->      (subclass PoliticalFigure Celebrity)
->      (subclass ReligiousFigure Celebrity)
->      (instance Celebrity SocialRole)
-> This is an example of bad design of the ontology that should be overcome in the translation to GF, as it is not possible in a type system that something could be both a type and an instance of a type.
+SUMO is typed.  The class hierarchy is the type structure.  All relations have a defined type signature specified with the domain, domainSubclass (and for functions range and rangeSubclass statements).  In the TPTP translation of SUMO the SigmaKEE system automatically adds type guards to axioms, since TPTP is an untyped logic.
 
 
 [^1]: Example formulations from Enache (2010) [Reasoning and Language Generation in the SUMO Ontology](http://publications.lib.chalmers.se/records/fulltext/116606.pdf):   "[…] Axioms that specify the behaviour of relations and the connections between various concepts."; "SUMO axioms […] are of two kinds: simple and quantified formulas."
